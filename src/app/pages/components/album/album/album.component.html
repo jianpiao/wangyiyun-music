@@ -1,0 +1,121 @@
+<div class="album">
+  <div class="album-box">
+    <div class="left">
+      <div class="album-header">
+        <div class="album-header-box">
+          <div class="album-pic">
+            <img class="title-img" [src]="albumDetail.album.picUrl" *ngIf="albumDetail.album.picUrl" width="208"
+              height="208">
+          </div>
+          <div class="album-header-right">
+            <div class="album-header-title">
+              <div class="album-header-tag"></div>
+              <h2> {{albumDetail.album.name}}</h2>
+            </div>
+            <div class="album-header-create">
+              <img [src]="albumDetail.album.artist.picUrl" *ngIf="albumDetail.album.artist.picUrl" alt="avatarUrl"
+                width="40" height="40">
+              <span class="album-header-create-key">歌手: </span>
+              <span class="album-header-create-value" (click)="toArtist(albumDetail.album.artist.id)">
+                {{albumDetail.album.artist.name}}</span>
+            </div>
+            <div class="album-publish-time">
+              <span>发行时间: {{albumDetail.album.publishTime | date:'yyyy-MM-dd'}}</span>
+            </div>
+            <div class="album-publish-time">
+              <span>发行公司: {{albumDetail.album.company}}</span>
+            </div>
+            <!-- 工具栏 -->
+            <div class="album-header-tool">
+              <div>
+                <i nz-icon nzType="play-circle" nzTheme="outline" (click)="playFirstSong()"></i>
+                <span>播放</span>
+              </div>
+              <div>
+                <i nz-icon nzType="folder-add" nzTheme="outline"></i>
+                <span>收藏</span>
+              </div>
+              <div>
+                <i nz-icon nzType="share-alt" nzTheme="outline"></i>
+                <span>分享 ({{albumDetail.album.info.shareCount}})</span>
+              </div>
+              <div>
+                <i nz-icon nzType="message" nzTheme="outline"></i>
+                <span>评论 ({{albumDetail.album.info.commentCount}})</span>
+              </div>
+            </div>
+            <div class="album-desc">
+              <h4>专辑介绍:<br /></h4>
+              <p *ngFor="let des of description,let index = index"
+                [ngStyle]="{'display': !showDescription?index<10?'block':'none':'block'}">{{des}}<br /></p>
+              <el-button type="text" *ngIf="description.length>10" (click)="showDescription = !showDescription">
+                {{showDescription?'收起':'展开'}}
+              </el-button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 歌曲列表 -->
+      <div class="album-songlist">
+        <div class="album-songlist-header">
+          <h2>歌曲列表</h2>
+          <span>{{albumDetail.album.size}}首歌</span>
+        </div>
+        <div class="album-songlist-table">
+          <nz-table #basicTable [nzData]="albumDetail.songs" [nzFrontPagination]="false">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>歌曲标题</th>
+                <th>时长</th>
+                <th>歌手</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of basicTable.data,let index = index">
+                <td>{{index}}</td>
+                <td>{{ data.name }}</td>
+                <td>{{ data.size  | date:'mm:ss'}}</td>
+                <td>{{ data.artist }}</td>
+                <td style="width: 130px;">
+                  <span>播放</span>
+                  <button nz-button nzType="link" (click)="handlePlay(data)">
+                    <i class="icon-zanting" style="font-size: 1.5rem;"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </nz-table>
+        </div>
+      </div>
+
+      <!-- 评论组件 -->
+      <app-comments #comment [commentTotal]="commentTotal" [hotComments]="hotComments" [comments]="comments"
+        [currentPage]="1" (pageIndexChange)="pageIndexChange($event)"></app-comments>
+    </div>
+
+    <!-- 右边 -->
+    <div class="right">
+      <!-- 相关推荐 -->
+      <div class="commend">
+        <div class="title flex">
+          <h4>Ta的其他热门专辑</h4>
+          <span (click)="toArtist(albumDetail.album.artist.id,1)">全部></span>
+        </div>
+        <div class="artist">
+          <div class="item flex" *ngFor="let item of hotAlbums">
+            <div class="img">
+              <img [src]="item.picUrl" width="50" height="50" (click)="toAlbum(item.id)">
+            </div>
+            <div class="content">
+              <p (click)="toAlbum(item.id)">{{item.name}}</p>
+              <p>{{item.publishTime | date:'yyyy-MM-dd'}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

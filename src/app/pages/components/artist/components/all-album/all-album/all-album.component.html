@@ -1,0 +1,12 @@
+<!-- 所有专辑 -->
+<div class="all-album">
+  <div class="list flex">
+    <div class="item" *ngFor="let item of albums,let index = index" (click)="toAlbum(item.id)">
+      <div class="img">
+        <img [src]="item.picUrl" width="120" height="120" *ngIf="item.picUrl">
+      </div>
+      <p class="text-over name">{{item.name}}</p>
+      <p class="text-over publishTime">{{item.publishTime | date:'yyyy-MM-dd'}}</p>
+    </div>
+  </div>
+</div>

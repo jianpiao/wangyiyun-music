@@ -1,0 +1,113 @@
+.artist {
+  background-color: #f1f1f1;
+
+  .content {
+    background-color: #fff;
+    width: 980px;
+    margin: 0 auto;
+    display: flex;
+
+    .left {
+      flex: 1;
+      padding: 20px 10px 0 40px;
+
+      // 名称
+      .header {
+        .name {
+          span {
+            margin-left: 10px;
+          }
+        }
+
+        .img {
+          width: 100%;
+          height: 300px;
+          display: flex;
+          align-items: flex-end;
+          justify-content: flex-end;
+          padding: 0 20px 20px 0;
+          background-image: url(../../../../../assets/images/logo.jpg);
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center center;
+
+          .private-home,
+          .favorite {
+            padding: 5px 10px;
+            margin: 0 10px;
+            border-radius: 5px;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.6);
+            cursor: pointer;
+
+            span {
+              margin-left: 5px;
+            }
+          }
+        }
+      }
+
+      // 导航栏
+      .nav {
+        .nav-item {
+          width: 25%;
+          height: 38px;
+          line-height: 40px;
+          text-align: center;
+          color: #444;
+          border-right: 1px solid #eee;
+          cursor: pointer;
+        }
+      }
+
+      // 导航内容
+      .nav-comp{
+        width: 680px;
+      }
+    }
+
+    .right {
+      width: 250px;
+
+      .commend {
+        margin: 20px 0 0 20px;
+        // 标题
+        .title {
+          margin: 0 30px 0 0;
+          height: 2rem;
+          line-height: 2rem;
+          font-size: 0.8rem;
+          border-bottom: 1px solid #ccc;
+        }
+
+        // 推荐歌手
+        .artist {
+          flex-wrap: wrap;
+          margin-top: 15px;
+          background-color: #fff;
+
+          .item {
+            width: 33%;
+
+            p {
+              width: 50px;
+              font-size: 0.8rem;
+              color: #000;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              cursor: pointer;
+              padding: 5px 0 10px 0;
+            }
+
+            p:hover {
+              text-decoration-color: #000;
+              text-decoration-line: underline;
+              text-decoration-style: solid;
+            }
+          }
+        }
+      }
+    }
+  }
+}

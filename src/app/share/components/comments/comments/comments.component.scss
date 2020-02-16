@@ -1,0 +1,128 @@
+// 评论
+.comment {
+  // 评论试图的标题
+  .comment-header {
+    display: flex;
+    align-items: center;
+    padding: 30px 0 10px 0;
+    border-bottom: 2px solid #ce1f08;
+
+    h3 {
+      color: #444;
+    }
+
+    span {
+      margin-left: 30px;
+      color: #666;
+      font-size: 0.85rem;
+    }
+  }
+
+  // 评论内容
+  .comment-body {
+    font-size: 0.9rem;
+    .cb-header {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #444;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .cb-content {
+      // 评论项
+      .cb-item {
+        display: flex;
+        padding: 15px 0;
+
+        // 用户头像
+        .cb-item-left {
+          width: 70px;
+        }
+
+        // 评论内容
+        .cb-item-right {
+          flex: 1;
+
+          // 回复
+          .replied {
+            background-color: #f4f4f4;
+            border: 1px solid #e9e9e9;
+            padding: 10px 15px;
+          }
+
+          .name {
+            // 用户名称
+            .user-name {
+              padding-right: 5px;
+              color: #0c73c2;
+              cursor: pointer;
+            }
+
+            .user-name:hover {
+              text-decoration-line: underline;
+              text-decoration-style: solid;
+              text-decoration-color: #0c73c2;
+            }
+
+            // 音乐人
+            .is-artist {
+              background: url(../../../../../assets/images/icon2.png) no-repeat 0 9999px;
+              margin-right: 5px;
+              vertical-align: -2px;
+              width: 12px;
+              height: 13px;
+              background-position: -110px -190px;
+              display: inline-block;
+              overflow: hidden;
+            }
+
+            .user-vip {
+              margin-right: 5px;
+            }
+
+            // 评论内容
+            .user-content {
+              color: #444;
+              padding-left: 5px;
+            }
+          }
+          // 时间
+          .time {
+            display: flex;
+            margin-top: 20px;
+            cursor: pointer;
+
+            .time-span {
+              color: #666;
+              font-size: 0.8rem;
+            }
+
+            div {
+              flex: 1;
+              display: flex;
+              align-items: center;
+              justify-content: flex-end;
+              color: #777;
+              font-size: 0.8rem;
+
+              // 点赞数量
+              span:nth-child(1) {
+                padding-right: 10px;
+                border-right: 1px solid #ccc;
+              }
+
+              span:nth-child(2) {
+                margin-left: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 分页
+  .pagination {
+    margin: 20px 0;
+  }
+}

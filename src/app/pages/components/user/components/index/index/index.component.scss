@@ -1,0 +1,140 @@
+// 电台
+.uc-dj {
+  margin: 20px 40px 0 40px;
+
+  // 电台标题
+  .uc-dj-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #ce1f08;
+    padding: 15px 0;
+  }
+
+  .uc-dj-item {
+    display: flex;
+    align-items: center;
+    border: 1px solid #eee;
+    padding: 5px 15px;
+
+    .uc-dj-item-img {
+      width: 80px;
+      cursor: pointer;
+    }
+
+    .uc-dj-item-name {
+      flex: 1;
+      color: #333;
+
+      span {
+        cursor: pointer;
+      }
+    }
+
+    .uc-dj-item-name > span:hover {
+      text-decoration-color: #000;
+      text-decoration-line: underline;
+      text-decoration-style: solid;
+    }
+
+    .uc-dj-item-read {
+      width: 150px;
+      font-size: 0.8rem;
+    }
+
+    .uc-dj-item-date {
+      font-size: 0.8rem;
+    }
+  }
+
+  .uc-dj-item:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+// 收藏的歌单
+.favo-sheet {
+  margin: 20px 40px 0 0;
+
+  // 标题
+  .favo-sheet-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #ce1f08;
+    padding: 15px 0;
+    margin-left: 40px;
+  }
+
+  // 列表
+  .fs-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    .fs-item {
+      margin: 15px 0 0 48px;
+
+      // 中间的图片框
+      .fs-box {
+        width: 140px;
+        height: 140px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        background-image: url("../../../../../../../assets//images/logo.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        .fs-bottom {
+          width: 140px;
+          background-color: rgba(0, 0, 0, 0.4);
+          padding: 0 5px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          color: #fff;
+          font-size: 0.8rem;
+
+          .fs-bottom-left {
+            height: 25px;
+            display: flex;
+            align-items: center;
+            z-index: 100;
+            i {
+              margin: 0 5px 3px 0;
+            }
+          }
+
+          .fs-bottom-right {
+            margin: 3px 0 0 0;
+            i {
+              font-size: 1rem;
+              color: #ccc;
+              cursor: pointer;
+            }
+
+            i:hover {
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+    // 描述
+    .fs-desc {
+      color: #000;
+      height: 20px;
+      margin: 10px 0;
+      width: 140px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .fs-desc:hover {
+      text-decoration-color: #000;
+      text-decoration-line: underline;
+      text-decoration-style: solid;
+    }
+  }
+}

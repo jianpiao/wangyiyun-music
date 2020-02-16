@@ -1,0 +1,127 @@
+.container {
+  .header {
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #fff;
+    background-color: #242424;
+    z-index: 1000;
+
+    // logo
+    .logo {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      h2 {
+        color: #fff;
+      }
+
+      img {
+        width: 50px;
+        height: 50px;
+        // margin: 5px 10px 0 0;
+      }
+    }
+
+    .tab-list {
+      display: flex;
+
+      .tab-item {
+        width: 100px;
+        height: 80px;
+        line-height: 80px;
+        cursor: pointer;
+        color: #aaa;
+        text-align: center;
+      }
+
+      .tab-item:hover {
+        color: #fff;
+        background: #000;
+      }
+
+      .tab-active {
+        color: #fff;
+        background: #000;
+      }
+    }
+
+    // 搜索
+    .search {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      padding: 0 10px;
+      height: 2rem;
+      border-radius: 2rem;
+
+      .search-icon {
+        color: #666;
+        margin-right: 10px;
+      }
+
+      input {
+        width: 150px;
+        border: none;
+        outline: none;
+        color: #000;
+      }
+    }
+
+    // 登陆
+    .login {
+      height: 2rem;
+      padding: 0 10px;
+      color: #aaa;
+      line-height: 2rem;
+    }
+  }
+
+  // 导航
+  .nav {
+    .n-subnav {
+      height: 35px;
+      box-sizing: border-box;
+      background-color: #c20c0c;
+      border-bottom: 1px solid #a40011;
+      font-size: 0.9rem;
+
+      .n-list {
+        height: 35px;
+        line-height: 35px;
+        width: 700px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        .n-item {
+          width: calc(100% / 6);
+          color: #fff;
+          cursor: pointer;
+          text-align: center;
+
+          span {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+          }
+
+          .nav-active {
+            background-color: rgba(0, 0, 0, 0.2);
+          }
+        }
+
+        .n-item:hover span {
+          background-color: rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+
+    .n-subdis {
+      height: 5px;
+      background-color: #c20c0c;
+      box-sizing: border-box;
+    }
+  }
+}

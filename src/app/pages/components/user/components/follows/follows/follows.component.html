@@ -1,0 +1,38 @@
+<div class="content">
+  <div class="title">
+    <h2>关注 ({{follows.length}})</h2>
+  </div>
+  <div class="list flex">
+    <div class="item flex" *ngFor="let item of follows">
+      <div class="item-left">
+        <img [src]="item.avatarUrl" width="60" height="60" (click)="toUser(item)">
+      </div>
+      <div class="item-middle">
+        <p>
+          <span class="nickname" (click)="toUser(item)">{{item.nickname}}</span>
+        </p>
+        <div class="flex">
+          <div (click)="toUser(item,0)">
+            <span>动态</span>
+            <span>{{item.eventCount}}</span>
+          </div>
+          <div (click)="toUser(item,1)">
+            <span>关注</span>
+            <span>{{item.follows}}</span>
+          </div>
+          <div (click)="toUser(item,2)">
+            <span>粉丝</span>
+            <span>{{item.followeds}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="item-right">
+        <div class="follow-button">
+          <i nz-icon nzType="plus" nzTheme="outline"></i>
+          <span>关注</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

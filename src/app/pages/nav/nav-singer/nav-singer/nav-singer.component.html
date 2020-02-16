@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="box">
+    <div class="left">
+      <div class="l-list">
+        <div class="l-item" *ngFor="let item of sliderTitle">
+          <h3>{{item.title}}</h3>
+          <ul class="l-c">
+            <li *ngFor="let row of item.data" (click)="selecteCode(row)"
+              [ngStyle]="{'color': selectedName==row.name?'#ce1f08':'#333'}">
+              {{row.name}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="content">
+        <div class="r-header">
+          <h1>{{selectedName}}</h1>
+        </div>
+        <div class="r-list flex">
+          <!-- 加载框 -->
+          <div style="text-align: center;margin: 20px auto;">
+            <nz-spin nzSimple *ngIf="loading"></nz-spin>
+          </div>
+          <!-- 列表 -->
+          <div class="r-item" *ngFor="let item of list,let index = index">
+            <img [src]="item.img1v1Url" width="124" height="124" alt="" *ngIf="index<10" (click)="jumpArtist(item.id)">
+            <div class="flex">
+              <p (click)="jumpArtist(item.id)">{{item.name}}</p>
+              <div class="tag" (click)="jumpUser(item.accountId)"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 分页 -->
+        <div class="pagination">
+          <nz-pagination [nzPageIndex]="currentPage" [nzTotal]="total" [nzPageSize]="30"
+            (nzPageIndexChange)="nzPageIndexChange($event)"></nz-pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

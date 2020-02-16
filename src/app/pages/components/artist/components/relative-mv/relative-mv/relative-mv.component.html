@@ -1,0 +1,12 @@
+<!-- 所有mv -->
+<div class="mvs">
+  <div class="list flex">
+    <div class="item" *ngFor="let item of mvs,let index = index" (click)="toMv(item.id)">
+      <div class="img">
+        <img [src]="item.imgurl" width="120" height="120">
+      </div>
+      <p class="text-over name">{{item.name}}</p>
+      <p class="text-over publishTime">{{item.publishTime | date:'yyyy-MM-dd'}}</p>
+    </div>
+  </div>
+</div>

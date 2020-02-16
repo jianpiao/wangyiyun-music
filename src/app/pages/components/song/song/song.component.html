@@ -1,0 +1,97 @@
+<div class="song">
+  <div class="song-box">
+    <div class="song-content">
+      <div class="song-content-box">
+        <!-- 歌曲图片 -->
+        <div class="song-pic">
+          <div>
+            <img [src]="song.al.picUrl" *ngIf="song.al.picUrl" width="180" height="180">
+            <span class="song-pic-tag"></span>
+          </div>
+        </div>
+
+        <!-- 歌曲信息 -->
+        <div class="song-info">
+          <!-- 标题 -->
+          <div class="sl-title">
+            <div class="sl-title-tag"></div>
+            <h2>{{song.name}}</h2>
+            <div class="sl-title-mv" *ngIf="song.mv&&song.mv!=0" (click)="toMv()"></div>
+          </div>
+          <!-- 歌手 -->
+          <div class="si-singer">
+            <span class="si-tag">歌手: </span>
+            <span class="si-value" (click)="toArtist(song.ar.id)">{{song.ar.name}}</span>
+          </div>
+          <!-- 专辑 -->
+          <div class="si-album">
+            <span class="si-tag">所属专辑: </span>
+            <span class="si-value" (click)="toAlbum(song.al.id)">{{song.al.name}}</span>
+          </div>
+          <!-- 工具 -->
+          <div class="si-tool">
+            <div style="cursor: pointer;">
+              <i class="icon-zanting" (click)="playSong()"></i>
+            </div>
+            <div style="cursor: pointer;">
+              <span>收藏</span>
+            </div>
+            <div style="cursor: pointer;">
+              <span>分享</span>
+            </div>
+            <div>
+              <span>评论 ({{commentTotal||''}})</span>
+            </div>
+          </div>
+          <!-- 歌词 -->
+          <div class="si-lyric">
+            <p *ngFor="let des of song.lyric,let index = index"
+              [ngStyle]="{'display': !showAllLyric?index<10?'block':'none':'block'}">{{des.lyric}}<br /></p>
+            <el-button type="text" *ngIf="song.lyric&&song.lyric.length>10" (click)="showAllLyric = !showAllLyric">
+              {{showAllLyric?'收起':'展开'}}
+            </el-button>
+          </div>
+        </div>
+      </div>
+      <!-- 评论组件 -->
+      <div style="padding: 0 40px;">
+        <app-comments #comment [commentTotal]="commentTotal" [hotComments]="hotComments" [comments]="comments"
+          [currentPage]="currentPage" (pageIndexChange)="pageIndexChange($event)"></app-comments>
+      </div>
+
+    </div>
+
+    <!-- 右边侧栏推荐 -->
+    <div class="song-commend">
+      <div class="sc-header">
+        包含这首歌的歌单
+      </div>
+      <div class="sc-incloud">
+        <div class="sc-incloud-item" *ngFor="let item of samePlayList">
+          <div class="sc-incloud-left">
+            <img [src]="item.coverImgUrl" width="50" height="50" (click)="toPlayList(item)">
+          </div>
+          <div class="sc-incloud-right">
+            <div (click)="toPlayList(item)">{{item.name}}</div>
+            <div>by {{item.nickname}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="sc-same">
+        <div class="sc-header">
+          相似歌曲
+        </div>
+        <div class="sc-same-item" *ngFor="let item of sameSong">
+          <div class="sc-same-item-left">
+            <div>{{item.name}}</div>
+            <div>{{item.artist}}</div>
+          </div>
+          <div class="sc-same-item-right">
+            <span><i class="icon-zanting"></i></span>
+            <span>+</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

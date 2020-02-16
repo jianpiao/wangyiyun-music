@@ -1,0 +1,236 @@
+.container {
+  background-color: #eff1f4;
+  .box {
+    width: 980px;
+    margin: 0 auto;
+    display: flex;
+
+    // 左边侧栏
+    .left {
+      width: 240px;
+      border-left: 1px solid #eee;
+      border-right: 1px solid #eee;
+      background-color: #f8f8f8;
+      padding-top: 50px;
+
+      // 侧栏标题
+      .l-title {
+        padding: 0 15px;
+        color: #000;
+        font-weight: bold;
+        font-size: 1rem;
+      }
+
+      // 侧栏列表
+      .l-list {
+        .l-item {
+          margin: 20px 0;
+          padding: 10px 15px;
+          background-color: #eee;
+          cursor: pointer;
+
+          .l-con {
+            width: 143px;
+            height: 50px;
+            margin-left: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            p {
+              margin: 0;
+            }
+
+            .l-c-name {
+              color: #000;
+              font-size: 0.9rem;
+              word-wrap: break-word;
+            }
+
+            .l-c-freq {
+              color: #999;
+              font-size: 0.8rem;
+            }
+          }
+        }
+      }
+    }
+
+    // 右边内容
+    .right {
+      flex: 1;
+      background-color: #fff;
+      padding: 0 40px;
+
+      .r-content {
+        // 头部简介
+        .pl-header {
+          padding: 20px 0;
+
+          .pl-header-box {
+            display: flex;
+          }
+
+          .pl-header-img {
+            width: 208px;
+            height: 208px;
+          }
+
+          .pl-header-right {
+            padding-left: 20px;
+
+            // 歌单名称
+            .pl-header-title {
+              display: flex;
+              align-items: center;
+              .pl-header-tag {
+                background: url(../../../../../assets/images/icon.png) no-repeat 0 9999px;
+                width: 54px;
+                height: 24px;
+                background-position: 0 -243px;
+                display: inline-block;
+                overflow: hidden;
+                margin-right: 10px;
+              }
+            }
+
+            // 创建者信息
+            .pl-header-create {
+              font-size: 0.9rem;
+              display: flex;
+              align-items: center;
+              margin-top: 15px;
+              img {
+                width: 40px;
+                height: 40px;
+              }
+
+              span {
+                margin-left: 20px;
+              }
+
+              span:nth-child(2) {
+                color: #0c73c2;
+                cursor: pointer;
+              }
+
+              span:nth-child(3) {
+                color: #666;
+              }
+            }
+
+            // 工具栏
+            .album-header-tool {
+              display: flex;
+              align-items: center;
+              margin-top: 5px;
+              flex-wrap: wrap;
+
+              div {
+                margin: 10px 10px 0 0;
+                padding: 5px 10px;
+                display: flex;
+                align-items: center;
+                border: 1px solid #ccc;
+                background-color: #f4f4f4;
+                border-radius: 3px;
+                cursor: pointer;
+
+                span {
+                  color: #444;
+                  font-size: 0.9rem;
+                  margin-left: 5px;
+                }
+                i {
+                  font-size: 1.1rem;
+                }
+              }
+
+              div:nth-child(1) {
+                display: flex;
+                align-items: center;
+                background-color: #3483cf;
+                color: #fff;
+                span {
+                  color: #fff;
+                }
+              }
+            }
+
+            // 标签
+            .pl-header-tags {
+              margin-top: 15px;
+              color: #666;
+              font-size: 0.9rem;
+              word-wrap: break-word;
+
+              .pl-header-tags-list {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+
+                .pl-header-tag {
+                  margin: 0 10px;
+                  height: 1.5rem;
+                  font-size: 0.8rem;
+                  line-height: 1.5rem;
+                  border-radius: 1.5rem;
+                  padding: 0 10px;
+                  border: 1px solid #ccc;
+                }
+              }
+            }
+          }
+        }
+
+        // 播放列表
+        .pl-songlist {
+          .pl-songlist-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #ce1f08;
+            padding: 15px 0;
+
+            span {
+              color: #666;
+              font-size: 0.9rem;
+            }
+          }
+          .pl-songlist-table {
+            td {
+              font-size: 0.9rem;
+              height: 57px;
+
+              div:hover {
+                text-decoration-style: solid;
+                text-decoration-line: underline;
+                text-decoration-color: #000;
+                cursor: pointer;
+              }
+            }
+
+            .td-name,
+            .td-album,
+            .td-artist {
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+            }
+
+            .td-name {
+              width: 200px;
+            }
+
+            .td-artist {
+              width: 60px;
+            }
+
+            .td-album {
+              width: 150px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

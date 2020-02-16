@@ -1,0 +1,43 @@
+<div class="content">
+  <div class="title">
+    <h2>粉丝数量 ({{followeds.length}})</h2>
+  </div>
+  <div class="list flex">
+    <div class="item flex" *ngFor="let item of followeds">
+      <!-- 用户图片 -->
+      <div class="item-left">
+        <img [src]="item.avatarUrl" width="60" height="60" (click)="toUser(item)">
+      </div>
+      <!-- 中间内容 -->
+      <div class="item-middle">
+        <p class="nickname" (click)="toUser(item)">{{item.nickname}}</p>
+        <div class="flex">
+          <div (click)="toUser(item,0)">
+            <span>动态</span>
+            <span>{{item.eventCount}}</span>
+          </div>
+          <div (click)="toUser(item,1)">
+            <span>关注</span>
+            <span>{{item.follows}}</span>
+          </div>
+          <div (click)="toUser(item,2)">
+            <span>粉丝</span>
+            <span>{{item.followeds}}</span>
+          </div>
+        </div>
+      </div>
+      <!-- 关注按钮 -->
+      <div class="item-right">
+        <div class="follow-button">
+          <i nz-icon nzType="plus" nzTheme="outline"></i>
+          <span>关注</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 分页 -->
+  <div class="pagination">
+    <nz-pagination [nzPageIndex]="currentPage" [nzTotal]="total" [nzPageSize]="30"
+      (nzPageIndexChange)="nzPageIndexChange($event)"></nz-pagination>
+  </div>

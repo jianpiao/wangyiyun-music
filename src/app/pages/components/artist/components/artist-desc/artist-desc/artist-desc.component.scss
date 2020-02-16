@@ -1,0 +1,22 @@
+.desc {
+  margin-top: 20px;
+
+  .title {
+    padding: 10px 0;
+
+    .tag {
+      width: 4px;
+      height: 1rem;
+      background-color: #ce1f08;
+      margin-right: 15px;
+    }
+  }
+
+  // 介绍
+  .brief-desc {
+    color: #666;
+    font-size: 0.8rem;
+    text-indent: 2rem;
+    line-height: 1.5rem;
+  }
+}

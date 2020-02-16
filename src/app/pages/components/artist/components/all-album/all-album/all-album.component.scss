@@ -1,0 +1,40 @@
+.all-album {
+  .list {
+    flex-wrap: wrap;
+
+    .item {
+      margin-top: 15px;
+      width: 25%;
+      .img {
+        position: relative;
+        width: 120px;
+        height: 120px;
+      }
+
+      .text-over {
+        margin-top: 5px;
+        width: 120px;
+      }
+
+      .name:hover {
+        text-decoration-color: #000;
+        text-decoration-line: underline;
+        text-decoration-style: solid;
+        cursor: pointer;
+      }
+
+      .name {
+        margin: 5px 0;
+        font-size: 0.92rem;
+        color: #333;
+        font-weight: bold;
+      }
+
+      .publishTime {
+        text-decoration: none;
+        color: #666;
+        font-size: 0.8rem;
+      }
+    }
+  }
+}

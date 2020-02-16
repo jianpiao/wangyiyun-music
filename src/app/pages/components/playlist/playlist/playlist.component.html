@@ -1,0 +1,129 @@
+<div class="playlist">
+  <div class="playlist-box">
+    <div class="left">
+      <div class="pl-header">
+        <div class="pl-header-box">
+          <!-- 歌单图片 -->
+          <div class="pl-header-img">
+            <img class="title-img" [src]="playlistDetail.coverImgUrl" *ngIf="playlistDetail.coverImgUrl" width="208"
+              height="208">
+          </div>
+
+          <!-- 歌单信息 -->
+          <div class="pl-header-right">
+            <div class="pl-header-title">
+              <!-- 歌单名称 -->
+              <div class="pl-header-tag"></div>
+              <h2>{{playlistDetail.name}}</h2>
+            </div>
+            <div class="pl-header-create">
+              <img [src]="playlistDetail.creator.avatarUrl" alt="avatarUrl" *ngIf="playlistDetail.creator.avatarUrl">
+              <span (click)="jumpUser(playlistDetail.creator.userId)">{{playlistDetail.creator.nickname}}</span>
+              <span>创建: {{playlistDetail.createTime | date:'yyyy-MM-dd hh:mm:ss'}}</span>
+            </div>
+            <!-- 工具栏 -->
+            <div class="album-header-tool">
+              <div>
+                <i nz-icon nzType="play-circle" nzTheme="outline" (click)="playFirstSong()"></i>
+                <span (click)="playFirstSong()">播放</span>
+              </div>
+              <div (click)="favorite()">
+                <i nz-icon nzType="folder-add" nzTheme="outline"></i>
+                <span>收藏 ({{playlistDetail.subscribedCount}})</span>
+              </div>
+              <div (click)="share()">
+                <i nz-icon nzType="share-alt" nzTheme="outline"></i>
+                <span>分享({{playlistDetail.shareCount}})</span>
+              </div>
+              <div (click)="sentMessage()">
+                <i nz-icon nzType="message" nzTheme="outline"></i>
+                <span>评论 ({{playlistDetail.commentCount}})</span>
+              </div>
+            </div>
+            <div class="pl-header-tags">
+              <div class="pl-header-tags-list">
+                标签:
+                <div class="pl-header-tag" *ngFor="let tag of playlistDetail.tags">{{tag}}</div>
+              </div>
+              介绍:
+              <span *ngFor="let des of description">{{des}}<br /></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 歌曲列表 -->
+      <div class="pl-songlist">
+        <div class="pl-songlist-header">
+          <h2>歌曲列表 ({{playlistDetail.tracks.length}})</h2>
+          <span>播放次数: <span style="font-size: 1.5rem;">{{playlistDetail.playCount}}</span> </span>
+        </div>
+        <!-- 歌曲表单 -->
+        <div class="pl-songlist-table">
+          <nz-table #basicTable [nzData]="playlistDetail.tracks" [nzFrontPagination]="false">
+            <thead>
+              <tr>
+                <th></th>
+                <th>歌曲标题</th>
+                <th>时长</th>
+                <th>歌手</th>
+                <th>专辑</th>
+                <!-- <th>操作</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of basicTable.data,let index = index">
+                <td style="display: flex;">
+                  <span style="margin-right: 10px;">{{index}}</span>
+                  <i class="icon-zanting" (click)="handlePlay(data)"></i>
+                </td>
+                <td>
+                  <div class="td-name" class="td-name" (click)="toSong(data.id)">
+                    {{ data.name }}
+                  </div>
+                </td>
+                <td class="td-size">{{ data.dt  | date:'mm:ss'}}</td>
+                <td>
+                  <div class="td-artist">
+                    <span *ngFor="let item of data.ar" (click)="toArtist(item.id)">
+                      {{ item.name }}
+                    </span>
+                  </div>
+                </td>
+                <td>
+                  <div class="td-album" (click)="toAlbum(data.al.id)">
+                    {{ data.al.name }}
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </nz-table>
+        </div>
+      </div>
+
+      <!-- 评论组件 -->
+      <app-comments #comment [commentTotal]="commentTotal" [hotComments]="hotComments" [comments]="comments"
+        [currentPage]="1" (pageIndexChange)="pageIndexChange($event)"></app-comments>
+    </div>
+
+    <!-- 推荐内容 -->
+    <div class="right">
+      <div class="song-commend">
+        <div class="sc-header">
+          <h4>热门歌单</h4>
+        </div>
+        <div class="sc-incloud">
+          <div class="sc-incloud-item" *ngFor="let item of personalized">
+            <div class="sc-incloud-left">
+              <img [src]="item.picUrl" width="50" height="50" (click)="toPlaylist(item.id)">
+            </div>
+            <div class="sc-incloud-right">
+              <div (click)="toPlaylist(item.id)">{{item.name}}</div>
+              <div (click)="toPlaylist(item.id)">{{item.copywriter}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="box">
+    <!-- 全部新专辑 -->
+    <div class="hot">
+      <div class="hot-header">
+        <div class="hot-title-first">
+          {{selectedTag}}
+        </div>
+        <div class="hot-title" *ngFor="let item of tags.sub,let index=index"
+          [ngStyle]="{'border-left': index!=0?'1px solid #eee':''}" (click)="selectTag(item)">
+          {{item.name}}
+        </div>
+      </div>
+
+      <!-- 加载框 -->
+      <div style="text-align: center;margin: 20px 0;">
+        <nz-spin nzSimple *ngIf="loading"></nz-spin>
+      </div>
+      <!-- 歌单 -->
+      <div class="singer-unit">
+        <div class="su-list">
+          <div class="su-item" *ngFor="let item of playlists" (click)="toPlaylist(item)">
+            <div class="fans" [ngStyle]="{'background-image': 'url('+item.coverImgUrl+')'}">
+              <div>
+                <span><i class="icon-erji"></i>{{item.playCount | playCount}}</span>
+                <span><i class="icon-zanting" (click)="playSheet(item)"></i></span>
+              </div>
+            </div>
+            <div class="su-name">
+              {{item.name}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 分页 -->
+    <div class="pagination">
+      <nz-pagination [nzPageIndex]="currentPage" [nzTotal]="total" [nzPageSize]="30"
+        (nzPageIndexChange)="nzPageIndexChange($event)"></nz-pagination>
+    </div>
+  </div>
+</div>

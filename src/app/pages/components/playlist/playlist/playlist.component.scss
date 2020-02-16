@@ -1,0 +1,243 @@
+.playlist {
+  background-color: #f1f1f1;
+
+  .playlist-box {
+    width: 980px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    padding: 0 20px;
+    display: flex;
+  }
+
+  .left {
+    flex: 1;
+  }
+
+  .right {
+    width: 250px;
+  }
+
+  .pl-header {
+    padding: 20px 0;
+
+    .pl-header-box {
+      display: flex;
+    }
+
+    .pl-header-img {
+      width: 208px;
+      height: 208px;
+    }
+
+    .pl-header-right {
+      padding-left: 20px;
+
+      // 歌单名称
+      .pl-header-title {
+        display: flex;
+        align-items: center;
+        .pl-header-tag {
+          background: url(../../../../../assets/images/icon.png) no-repeat 0 9999px;
+          width: 54px;
+          height: 24px;
+          background-position: 0 -243px;
+          display: inline-block;
+          overflow: hidden;
+          margin-right: 10px;
+        }
+      }
+
+      // 创建者信息
+      .pl-header-create {
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        margin-top: 15px;
+        img {
+          width: 40px;
+          height: 40px;
+        }
+
+        span {
+          margin-left: 20px;
+        }
+
+        span:nth-child(2) {
+          color: #0c73c2;
+          cursor: pointer;
+        }
+
+        span:nth-child(3) {
+          color: #666;
+        }
+      }
+
+      // 工具栏
+      .album-header-tool {
+        display: flex;
+        align-items: center;
+        margin-top: 5px;
+        flex-wrap: wrap;
+
+        div {
+          margin:10px 10px 0 0;
+          padding: 5px 10px;
+          display: flex;
+          align-items: center;
+          border: 1px solid #ccc;
+          background-color: #f4f4f4;
+          border-radius: 3px;
+          cursor: pointer;
+
+          span {
+            color: #444;
+            font-size: 0.9rem;
+            margin-left: 5px;
+          }
+          i {
+            font-size: 1.1rem;
+          }
+        }
+
+        div:nth-child(1) {
+          display: flex;
+          align-items: center;
+          background-color: #3483cf;
+          color: #fff;
+          span {
+            color: #fff;
+          }
+        }
+      }
+
+      // 标签
+      .pl-header-tags {
+        margin-top: 15px;
+        color: #666;
+        font-size: 0.9rem;
+        word-wrap: break-word;
+
+        .pl-header-tags-list {
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+
+          .pl-header-tag {
+            margin: 0 10px;
+            height: 1.5rem;
+            font-size: .8rem;
+            line-height: 1.5rem;
+            border-radius: 1.5rem;
+            padding: 0 10px;
+            border: 1px solid #ccc;
+          }
+        }
+      }
+    }
+  }
+
+  // 播放列表
+  .pl-songlist {
+    .pl-songlist-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #ce1f08;
+      padding: 15px 0;
+
+      span {
+        color: #666;
+        font-size: 0.9rem;
+      }
+    }
+    .pl-songlist-table {
+      td {
+        font-size: 0.9rem;
+        height: 57px;
+
+        div:hover {
+          text-decoration-style: solid;
+          text-decoration-line: underline;
+          text-decoration-color: #000;
+          cursor: pointer;
+        }
+      }
+
+      .td-name,
+      .td-album,
+      .td-artist {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      .td-name {
+        width: 200px;
+      }
+
+      .td-artist {
+        width: 60px;
+      }
+
+      .td-album {
+        width: 150px;
+      }
+    }
+  }
+
+  // 推荐内容
+  .song-commend {
+    padding: 0 0 0 20px;
+
+    .sc-header {
+      height: 50px;
+      line-height: 50px;
+      border-bottom: 1px solid #aaa;
+      color: #333;
+      font-weight: bold;
+    }
+    
+    .sc-incloud {
+      padding: 10px 0;
+
+      .sc-incloud-item {
+        margin: 10px 0;
+        display: flex;
+
+        .sc-incloud-left {
+          width: 60px;
+        }
+
+        .sc-incloud-right {
+          cursor: pointer;
+
+          div {
+            padding-left: 10px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 185px;
+          }
+
+          div:nth-child(1) {
+            color: #222;
+          }
+
+          div:nth-child(1):hover,
+          div:nth-child(2):hover {
+            text-decoration-line: underline;
+            text-decoration-style: solid;
+            text-decoration-color: #444;
+          }
+
+          div:nth-child(2) {
+            color: #666;
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}

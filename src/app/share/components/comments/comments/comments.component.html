@@ -1,0 +1,105 @@
+<!-- 评论 -->
+<div class="comment">
+  <div class="comment-header">
+    <h1>评论</h1>
+    <span>共{{commentTotal}}条评论</span>
+  </div>
+  <div class="comment-body">
+    <!-- 精彩评论 -->
+    <div class="cb-header" *ngIf="hotComments.length>0">
+      精彩评论 ({{hotComments.length||0}})
+    </div>
+    <div class="cb-content">
+      <div class="cb-item" *ngFor="let item of hotComments,let index = index"
+        [ngStyle]="{'border-top': index==0?'':'1px dotted #a9a9a9'}">
+        <div class="cb-item-left">
+          <img [src]="item.user.avatarUrl" width="60" height="60" (click)="toUser(item.user)">
+        </div>
+        <div class="cb-item-right">
+          <div class="name">
+            <span class="user-name" (click)="toUser(item.user)">{{item.user.nickname}}</span>
+            <div class="is-artist" *ngIf="item.user.userType!=0"></div>
+            <span class="user-vip" *ngIf="item.user.vipRights&&item.user.vipRights.redVipAnnualCount==-1"><img
+                src="../../../../../assets/images/vip.png" height="12"></span>
+            <span class="user-vip" *ngIf="item.user.vipRights&&item.user.vipRights.redVipAnnualCount==1"><img
+                src="../../../../../assets/images/vipy.png" height="12"></span>
+            <span>:</span>
+            <span class="user-content">{{item.content}}</span>
+            <!-- 回复评论 -->
+            <div class="replied" *ngFor="let rep of item.beReplied">
+              <div class="name">
+                <span class="user-name" (click)="toUser(item.user)">{{rep.user.nickname}}</span>
+                <div class="is-artist" *ngIf="rep.user.userType!=0"></div>
+                <span class="user-vip" *ngIf="rep.user.vipRights&&rep.user.vipRights.redVipAnnualCount==-1"><img
+                    src="../../../../../assets/images/vip.png" height="12"></span>
+                <span class="user-vip" *ngIf="rep.user.vipRights&&rep.user.vipRights.redVipAnnualCount==1"><img
+                    src="../../../../../assets/images/vipy.png" height="12"></span>
+                <span>:</span>
+                <span class="user-content">{{rep.content}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="time">
+            <span class="time-span">{{item.time | date:'yyyy年MM月dd日'}}</span>
+            <div>
+              <span><i nz-icon nzType="like" nzTheme="outline"></i> ({{item.likedCount}})</span>
+              <span>回复</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 最新评论 -->
+    <div class="cb-header">
+      最新评论 ({{commentTotal}})
+    </div>
+    <div class="cb-content">
+      <div class="cb-item" *ngFor="let item of comments,let index = index"
+        [ngStyle]="{'border-top': index==0?'':'1px dotted #a9a9a9'}">
+        <div class="cb-item-left">
+          <img [src]="item.user.avatarUrl" width="60" height="60" (click)="toUser(item.user)">
+        </div>
+        <div class="cb-item-right">
+          <div class="name">
+            <span class="user-name" (click)="toUser(item.user)">{{item.user.nickname}}</span>
+            <div class="is-artist" *ngIf="item.user.userType!=0"></div>
+            <span class="user-vip" *ngIf="item.user.vipRights&&item.user.vipRights.redVipAnnualCount==-1"><img
+                src="../../../../../assets/images/vip.png" height="12"></span>
+            <span class="user-vip" *ngIf="item.user.vipRights&&item.user.vipRights.redVipAnnualCount==1"><img
+                src="../../../../../assets/images/vipy.png" height="12"></span>
+            <span>:</span>
+            <span class="user-content">{{item.content}}</span>
+            <!-- 回复评论 -->
+            <div class="replied" *ngFor="let rep of item.beReplied">
+              <div class="name">
+                <span class="user-name" (click)="toUser(item.user)">{{rep.user.nickname}}</span>
+                <div class="is-artist" *ngIf="rep.user.userType!=0"></div>
+                <span class="user-vip" *ngIf="rep.user.vipRights&&rep.user.vipRights.redVipAnnualCount==-1"><img
+                    src="../../../../../assets/images/vip.png" height="12"></span>
+                <span class="user-vip" *ngIf="rep.user.vipRights&&rep.user.vipRights.redVipAnnualCount==1"><img
+                    src="../../../../../assets/images/vipy.png" height="12"></span>
+                <span>:</span>
+                <span class="user-content">{{rep.content}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="time">
+            <span class="time-span">{{item.time | filterTime}}</span>
+            <div>
+              <span><i nz-icon nzType="like" nzTheme="outline"></i> ({{item.likedCount}})</span>
+              <span>回复</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 分页 -->
+  <div class="pagination">
+    <nz-pagination [nzPageIndex]="currentPage" [nzTotal]="commentTotal" [nzPageSize]="20"
+      (nzPageIndexChange)="nzPageIndexChange($event)"></nz-pagination>
+  </div>
+
+</div>

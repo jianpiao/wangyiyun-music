@@ -1,0 +1,94 @@
+.container {
+  background-color: #eff1f4;
+  .box {
+    width: 980px;
+    margin: 0 auto;
+    display: flex;
+
+    // 左边
+    .left {
+      width: 200px;
+      border-left: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+      background-color: #f8f8f8;
+      padding-top: 50px;
+
+      .l-list {
+        .l-item {
+          margin: 10px 15px;
+          padding: 10px 0;
+          cursor: pointer;
+          border-bottom: 1px solid #ccc;
+
+          ul {
+            padding: 0 0 0 20px;
+
+            li {
+              padding: 10px 0;
+              color: #333;
+            }
+          }
+        }
+      }
+    }
+
+    // 右边
+    .right {
+      flex: 1;
+      background-color: #fff;
+      padding: 0 30px;
+
+      .content {
+        .r-header {
+          display: flex;
+          align-items: center;
+          margin: 0 10px;
+          padding: 30px 0 10px 0;
+          border-bottom: 2px solid #ce1f08;
+        }
+
+        // 列表
+        .r-list {
+          flex-wrap: wrap;
+          padding-bottom: 20px;
+          .r-item {
+            margin: 15px 10px 0 10px;
+            width: 124px;
+
+            .flex {
+              justify-content: space-between;
+              margin: 5px 0 0 0;
+              cursor: pointer;
+              p {
+                color: #333;
+                margin: 0;
+              }
+
+              p:hover {
+                text-decoration-color: #000;
+                text-decoration-line: underline;
+                text-decoration-style: solid;
+              }
+
+              .tag {
+                background: url(../../../../../assets/images/icon.png) no-repeat 0 9999px;
+                width: 17px;
+                height: 18px;
+                background-position: 0 -740px;
+                display: inline-block;
+                overflow: hidden;
+                margin-right: 10px;
+              }
+            }
+          }
+        }
+
+        // 分页
+        .pagination {
+          padding: 20px 20px 20px 40px;
+          background-color: #fff;
+        }
+      }
+    }
+  }
+}

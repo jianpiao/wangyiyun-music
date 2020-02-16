@@ -1,0 +1,74 @@
+<div>
+  <!-- 电台 -->
+  <div class="uc-dj" *ngIf="userDj.count>0">
+    <div class="uc-dj-title">
+      <h2>{{userinfo.profile.nickname}}的电台({{userDj.count}})</h2>
+    </div>
+    <div class="uc-dj-item" *ngFor="let item of userDj.programs">
+      <div class="uc-dj-item-img">
+        <img src="../../../../../../assets/images/logo.jpg" width="60" height="60">
+      </div>
+      <div class="uc-dj-item-name">
+        <span>
+          名称
+        </span>
+      </div>
+      <div class="uc-dj-item-read">
+        订阅1次
+      </div>
+      <div class="uc-dj-item-date">
+        12期
+      </div>
+    </div>
+  </div>
+
+  <!-- 收藏歌单 -->
+  <div class="favo-sheet" *ngIf="userFavoPlaylist.length">
+    <div class="favo-sheet-title">
+      {{userinfo.profile.nickname}}收藏的歌单 ({{userFavoPlaylist.length}})
+    </div>
+    <div class="fs-list">
+      <div class="fs-item" *ngFor="let item of userFavoPlaylist">
+        <div class="fs-box" [ngStyle]="{'background-image': 'url('+item.coverImgUrl+')'}" (click)="toPlaylist(item)">
+          <div class="fs-bottom">
+            <div class="fs-bottom-left">
+              <i nz-icon nzType="customer-service" nzTheme="outline"></i>
+              <span>{{item.playCount | playCount}}</span>
+            </div>
+            <div class="fs-bottom-right">
+              <i nz-icon nzType="play-circle" nzTheme="outline"></i>
+            </div>
+          </div>
+        </div>
+        <div class="fs-desc" (click)="toPlaylist(item)">
+          {{item.name}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 创建的歌单 -->
+  <div class="favo-sheet" *ngIf="userCreatePlaylist.length>0">
+    <div class="favo-sheet-title">
+      {{userinfo.profile.nickname}}创建的歌单 ({{userCreatePlaylist.length}})
+    </div>
+    <div class="fs-list">
+      <div class="fs-item" *ngFor="let item of userCreatePlaylist">
+        <div class="fs-box" [ngStyle]="{'background-image': 'url('+item.coverImgUrl+')'}" (click)="toPlaylist(item)">
+          <div class="fs-bottom">
+            <div class="fs-bottom-left">
+              <i nz-icon nzType="customer-service" nzTheme="outline"></i>
+              <span>{{item.playCount | playCount}}</span>
+            </div>
+            <div class="fs-bottom-right">
+              <i nz-icon nzType="play-circle" nzTheme="outline"></i>
+            </div>
+          </div>
+        </div>
+        <div class="fs-desc" (click)="toPlaylist(item)">
+          {{item.name}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

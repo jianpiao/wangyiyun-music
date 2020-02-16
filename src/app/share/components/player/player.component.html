@@ -1,0 +1,61 @@
+<div class="player">
+  <div class="tool">
+    <!-- 上一首-暂停-下一首 -->
+    <div class="ctrl">
+      <i class="icon-kuaitui" (click)="onLast()"></i>
+      <i class="icon-zanting" (click)="onPlayState('pause')" *ngIf="!playerService.start"></i>
+      <i class="icon-bofang" (click)="onPlayState('play')" *ngIf="playerService.start"></i>
+      <i class="icon-kuaijin" (click)="onNext()"></i>
+    </div>
+
+    <!-- 音乐信息-播放条 -->
+    <div class="music-info">
+      <img [src]="playerService.song?.picUrl" *ngIf="playerService.song.picUrl" width="40" height="40" (click)="toSongDetail(playerService.song)">
+      <img src="../../../../assets/images/logo.jpg"  *ngIf="!playerService.song.picUrl" width="40" height="40">
+      <div class="slider">
+        <div *ngIf="playerService.song.artist">{{playerService.song?.artist}} - {{playerService.song?.name}}</div>
+        <audio #audio [src]="playerService.song?.url" (canplay)="onCanplay()" (ended)="onEnd()"
+          controls="controls"></audio>
+      </div>
+    </div>
+
+
+    <!-- 音乐列表 -->
+    <div class="sheet">
+      <i class="icon-liebiao" (click)="onShowSheet()"></i>
+    </div>
+  </div>
+
+  <!-- 歌曲列表-歌词-对话框 -->
+  <div class="song-sheet-mask" (click)="onShowSheet()" *ngIf="showSheet"></div>
+  <div class="songs-sheet" *ngIf="showSheet">
+    <div class="songs-sheet-box">
+      <div class="ss-left">
+        <div class="ssl-header">
+          <div class="ssl-header-left">播放列表({{playerService.songList.length}})</div>
+          <div class="ssl-header-right">清除</div>
+        </div>
+        <div class="ssl-list">
+          <div class="ssl-item" *ngFor="let item of playerService.songList,let index=index"
+            [ngStyle]="{'background': playerService.song.id==item.id?'rgba(0,0,0,0.5)':''}">
+            <div class="ssl-item-name">
+              <i class="icon-zanting" (click)="playItem(item)"></i>
+              <span (click)="toSongDetail(item)">{{item.name}}</span>
+            </div>
+            <div class="ssl-item-artist">
+              <span>{{item.artist}}</span><span>{{item.size | date:'mm:ss'}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ss-right">
+        <div class="ssr-header">
+          歌词
+        </div>
+        <div class="ssr-content">
+          <P *ngFor="let item of playerService.song?.lyric">{{item.lyric}}</P>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

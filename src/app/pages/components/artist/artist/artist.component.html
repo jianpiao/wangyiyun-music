@@ -1,0 +1,60 @@
+<div class="artist">
+  <div class="content">
+    <div class="left">
+      <!-- 头部信息 -->
+      <div class="header">
+        <div class="flex name">
+          <h1>{{artist.name}}</h1>
+          <span *ngFor="let item of artist.alias">{{item}}</span>
+        </div>
+        <div class="img" [ngStyle]="{'background-image': 'url('+artist.picUrl+')'}">
+          <div class="flex private-home">
+            <i nz-icon nzType="user" nzTheme="outline"></i>
+            <span>个人主页</span>
+          </div>
+          <div class="flex favorite">
+            <i nz-icon nzType="folder-add" nzTheme="outline"></i>
+            <span>收藏</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 信息切换栏 -->
+      <div class="flex nav">
+        <div class="nav-item" *ngFor="let item of ['热门作品','所有专辑','相关mv','艺人介绍'],let index = index" [ngStyle]="{'border-top': index==selectedNav?'2px solid #d13030':'2px solid #fff',
+          'border-bottom':index==selectedNav?'none':'1px solid #eee', 
+          'border-left':index==0?'1px solid #eee':'none'}" (click)="changeNav(index)">
+          <div class="name">
+            {{item}}
+          </div>
+        </div>
+      </div>
+
+      <!-- 导航内容 -->
+      <div class="nav-comp" *ngIf="!loading">
+        <app-hot-songs *ngIf="selectedNav==0" [songs]="hotSongs"></app-hot-songs>
+        <app-all-album *ngIf="selectedNav==1" [albums]="hotAlbums"></app-all-album>
+        <app-relative-mv *ngIf="selectedNav==2" [mvs]="mvs"></app-relative-mv>
+        <app-artist-desc *ngIf="selectedNav==3" [artistDesc]="artistDesc" [name]="artist.name"></app-artist-desc>
+      </div>
+      <div style="text-align: center;margin: 20px 0;">
+        <nz-spin nzSimple *ngIf="loading"></nz-spin>
+      </div>
+
+    </div>
+    <!-- 右边侧栏推荐 -->
+    <div class="right">
+      <div class="commend">
+        <div class="title">
+          <h4>热门歌手</h4>
+        </div>
+        <div class="flex artist">
+          <div class="item" *ngFor="let item of hotArtist">
+            <img [src]="item.picUrl" width="50" height="50" (click)="toArtist(item.id)">
+            <p (click)="toArtist(item.id)">{{item.name}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

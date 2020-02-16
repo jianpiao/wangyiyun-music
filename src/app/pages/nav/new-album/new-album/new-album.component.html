@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="box">
+    <!-- 热门新碟 -->
+    <div class="hot">
+      <div class="hot-header">
+        <div class="hot-title-first">
+          热门新碟
+        </div>
+      </div>
+      <!-- 加载框 -->
+      <div style="text-align: center;margin: 20px 0;">
+        <nz-spin nzSimple *ngIf="loadingHot"></nz-spin>
+      </div>
+      <!-- 歌单 -->
+      <div class="singer-unit">
+        <div class="su-list">
+          <div class="su-item" *ngFor="let item of albumNewest" (click)="toAlbum(item)">
+            <div class="album-img" [ngStyle]="{'background-image': 'url('+item.picUrl+')'}">
+              <i class="icon-zanting" (click)="playAlbum(item)"></i>
+            </div>
+            <div class="ai-desc">
+              <p class="text-over">{{item.name}}</p>
+              <p class="text-over">{{item.artist.name}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 全部新专辑 -->
+    <div class="hot">
+      <div class="hot-header">
+        <div class="hot-title-first">
+          {{selectedTag}}新辑
+        </div>
+        <div class="hot-h-list flex">
+          <div class="hot-h-item" *ngFor="let item of ['全部','华语','欧美','韩国','日本']" (click)="selectTag(item)">{{item}}
+          </div>
+        </div>
+      </div>
+      <!-- 加载框 -->
+      <div style="text-align: center;margin: 20px 0;">
+        <nz-spin nzSimple *ngIf="loadingAll"></nz-spin>
+      </div>
+      <!-- 歌单 -->
+      <div class="singer-unit">
+        <div class="su-list">
+          <div class="su-item" *ngFor="let item of topAlbum" (click)="toAlbum(item)">
+            <div class="album-img" [ngStyle]="{'background-image': 'url('+item.picUrl+')'}">
+              <i class="icon-zanting" (click)="playAlbum(item)"></i>
+            </div>
+            <div class="ai-desc">
+              <p class="text-over">{{item.name}}</p>
+              <p class="text-over">{{item.artist.name}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 分页 -->
+    <div class="pagination">
+      <nz-pagination [nzPageIndex]="currentPage" [nzTotal]="toAlbumTotal" [nzPageSize]="30"
+        (nzPageIndexChange)="nzPageIndexChange($event)"></nz-pagination>
+    </div>
+  </div>
+</div>

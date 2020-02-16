@@ -1,0 +1,50 @@
+.hot-songs {
+  // 播放列表
+  .pl-songlist {
+    .pl-songlist-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #ce1f08;
+      padding: 15px 0;
+
+      span {
+        color: #666;
+        font-size: 0.9rem;
+      }
+    }
+    .pl-songlist-table {
+      td {
+        font-size: 0.9rem;
+        height: 57px;
+
+        div:hover {
+          text-decoration-style: solid;
+          text-decoration-line: underline;
+          text-decoration-color: #000;
+          cursor: pointer;
+        }
+      }
+
+      .td-name,
+      .td-album,
+      .td-artist {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      .td-name {
+        width: 200px;
+      }
+
+      .td-artist {
+        width: 60px;
+      }
+
+      .td-album {
+        width: 150px;
+      }
+    }
+  }
+}

@@ -1,0 +1,230 @@
+.song {
+  background-color: #f1f1f1;
+
+  .song-box {
+    width: 980px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    display: flex;
+
+    .song-content {
+      flex: 1;
+
+      .song-content-box {
+        display: flex;
+        padding: 20px 20px 20px 40px;
+      }
+
+      // 歌曲图片
+      .song-pic {
+        width: 198px;
+        height: 198px;
+        position: relative;
+
+        img {
+          width: 130px;
+          height: 130px;
+          margin: 34px;
+        }
+
+        .song-pic-tag {
+          position: absolute;
+          background: url(https://s2.music.126.net/style/web2/img/coverall.png?de57f1fd876defc937c110aeb0ed6a17)
+            no-repeat 0 9999px;
+          width: 206px;
+          height: 205px;
+          top: -4px;
+          left: -4px;
+          background-position: -140px -580px;
+          display: inline-block;
+          overflow: hidden;
+        }
+      }
+
+      // 歌曲信息
+      .song-info {
+        flex: 1;
+        margin-left: 20px;
+        .si-title,
+        .si-singer,
+        .si-album,
+        .si-tool {
+          display: flex;
+          align-items: center;
+          padding: 10px 0;
+          font-size: 0.9rem;
+        }
+
+        // 标题
+        .sl-title {
+          display: flex;
+          align-items: center;
+          // 标题名称
+          .sl-title-tag {
+            background: url(../../../../../assets/images/icon.png) no-repeat 0 9999px;
+            width: 54px;
+            height: 24px;
+            background-position: 0 -463px;
+            display: inline-block;
+            overflow: hidden;
+            margin-right: 10px;
+          }
+
+          .sl-title-mv {
+            background: url(../../../../../assets/images/icon.png) no-repeat 0 9999px;
+            width: 21px;
+            height: 18px;
+            background-position: 0 -18px;
+            display: inline-block;
+            overflow: hidden;
+            margin-left: 10px;
+          }
+        }
+
+        .si-tag {
+          color: #666;
+        }
+
+        .si-value {
+          margin-left: 10px;
+          color: #0c73c2;
+          cursor: pointer;
+        }
+
+        .si-title {
+        }
+
+        .si-singer {
+        }
+
+        .si-album {
+        }
+
+        .si-value:hover {
+          text-decoration-color: #0c73c2;
+          text-decoration-line: underline;
+          text-decoration-style: solid;
+        }
+
+        .si-tool {
+          div {
+            margin-right: 20px;
+
+            span {
+              color: #666;
+              font-size: 0.9rem;
+            }
+          }
+
+          div:nth-child(1) {
+            display: flex;
+            align-items: center;
+            i {
+              font-size: 2rem;
+              color: #666;
+            }
+          }
+        }
+
+        .si-lyric {
+          padding: 10px 0;
+          font-size: 0.9rem;
+          color: #333;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+      }
+    }
+
+    // 推荐
+    .song-commend {
+      width: 250px;
+      padding: 0 15px 0 0;
+      font-size: 0.9rem;
+
+      .sc-header {
+        height: 50px;
+        line-height: 50px;
+        border-bottom: 1px solid #aaa;
+        color: #333;
+        font-weight: bold;
+      }
+
+      // 包含这首歌曲的歌单
+      .sc-incloud {
+        padding: 10px 0;
+
+        .sc-incloud-item {
+          margin: 10px 0;
+          display: flex;
+
+          .sc-incloud-left {
+            width: 60px;
+          }
+
+          .sc-incloud-right {
+            cursor: pointer;
+
+            div {
+              padding-left: 10px;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              white-space: nowrap;
+              width: 185px;
+            }
+
+            div:nth-child(1) {
+              color: #222;
+            }
+
+            div:nth-child(1):hover,
+            div:nth-child(2):hover {
+              text-decoration-line: underline;
+              text-decoration-style: solid;
+              text-decoration-color: #444;
+            }
+
+            div:nth-child(2) {
+              color: #666;
+              font-size: 0.8rem;
+            }
+          }
+        }
+      }
+
+      // 相似歌曲
+      .sc-same {
+        margin-top: 20px;
+
+        .sc-same-item {
+          display: flex;
+          align-items: center;
+          margin: 10px 0;
+
+          .sc-same-item-left {
+            flex: 1;
+            cursor: pointer;
+
+            div:nth-child(1) {
+              color: #222;
+            }
+            div:nth-child(2) {
+              color: #666;
+              font-size: 0.8rem;
+            }
+          }
+
+          .sc-same-item-right {
+            width: 3rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1rem;
+            color: #666;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

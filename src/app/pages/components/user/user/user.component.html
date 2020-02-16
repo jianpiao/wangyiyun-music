@@ -1,0 +1,50 @@
+<div class="user">
+  <div class="user-content">
+    <div class="uc-header">
+      <div class="uc-header-left">
+        <div>
+          <img [src]="userinfo.profile.avatarUrl" *ngIf="userinfo.profile.avatarUrl" alt="" width="200" height="200">
+        </div>
+      </div>
+      <div class="uc-header-right">
+        <!-- 头部信息 -->
+        <div class="uc-name">
+          <h2>{{userinfo.profile.nickname}}</h2>
+          <div class="uc-name-lv">
+            <span class="uc-name-lv-tag"></span>
+            <span class="uc-name-lv-lv">{{userinfo.level}}</span>
+          </div>
+          <div><span class="uc-name-tag"></span></div>
+          <div class="uc-name-mf uc-name-msg">
+            <i nz-icon nzType="mail" nzTheme="outline"></i>
+            <span>发私信</span>
+          </div>
+          <div class="uc-name-mf uc-name-follow">
+            <i nz-icon nzType="plus" nzTheme="outline"></i>
+            <span>关注</span>
+          </div>
+        </div>
+        <!-- 动态信息 -->
+        <div class="uc-info">
+          <div class="uc-num" *ngFor="let item of active,let index = index"
+            [ngStyle]="{'margin-left': index!=0?'20px':'0px'}" (click)="changeNav(index)">
+            <div class="uc-item-title">{{item.num}}</div>
+            <div class="uc-item-desc">{{item.title}}</div>
+          </div>
+        </div>
+        <!-- 个人简介 -->
+        <div class="uc-user-desc">
+          个人介绍:
+          <span>{{userinfo.profile.signature}}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 路由 -->
+    <app-index *ngIf="selectedNav==0" [userDj]="userDj" [userinfo]="userinfo" [userFavoPlaylist]="userFavoPlaylist"
+      [userCreatePlaylist]="userCreatePlaylist"></app-index>
+    <app-follows *ngIf="selectedNav==1" [follows]="follows"></app-follows>
+    <app-followeds *ngIf="selectedNav==2" [followeds]="followeds" [total]="userinfo.profile.followeds" (changPage)="changPage($event)"></app-followeds>
+
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="desc">
+  <div class="title flex">
+    <div class="tag"></div>
+    <h4>{{name}}简介</h4>
+  </div>
+  <div>
+    <p class="brief-desc">{{artistDesc.briefDesc}}</p>
+  </div>
+  <div class="other">
+    <div class="intro-item" *ngFor="let item of artistDesc.introduction">
+      <div class="title">
+        <h4>{{item.ti}}</h4>
+      </div>
+      <div>
+        <p class="brief-desc">{{item.txt}}</p>
+      </div>
+    </div>
+  </div>
+</div>

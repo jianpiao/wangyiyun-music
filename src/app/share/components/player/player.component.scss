@@ -1,0 +1,171 @@
+.player {
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #242424;
+  z-index: 21000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+
+  .tool {
+    display: flex;
+    align-items: center;
+    width: 800px;
+
+    .ctrl {
+      i {
+        margin: 0 5px;
+      }
+      i:nth-child(2) {
+        font-size: 40px;
+      }
+
+      i:nth-child(1),
+      i:nth-child(3) {
+        font-size: 25px;
+      }
+    }
+
+    .ctrl,
+    .music-info {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+    }
+
+    .music-info {
+      flex: 1;
+      .slider {
+        flex: 1;
+        margin: 0 10px;
+
+        audio {
+          width: 100%;
+          height: 25px;
+          outline: none;
+        }
+      }
+
+      .time {
+        display: flex;
+      }
+    }
+  }
+
+  // 播放列表 mask
+  .song-sheet-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 60px;
+    width: 100%;
+    height: calc(100% - 60px);
+    z-index: 100;
+  }
+
+  // 播放列表
+  .songs-sheet {
+    position: fixed;
+    bottom: 60px;
+    margin: 0 auto;
+    height: 250px;
+    width: 980px;
+    z-index: 20001;
+    background: #201c1ce6;
+
+    .songs-sheet-box {
+      display: flex;
+      // 播放列表
+      .ss-left {
+        width: 600px;
+        border-right: 1px solid #eee;
+
+        .ssl-header {
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 20px;
+          border-bottom: 1px solid #eee;
+          color: #eee;
+          font-size: 0.9rem;
+        }
+
+        .ssl-list::-webkit-scrollbar {
+          width: 0 !important;
+        }
+        .ssl-list {
+          height: 209px;
+          overflow-y: scroll;
+
+          .ssl-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px 20px;
+            color: #fff;
+            font-size: 0.8rem;
+
+            .ssl-item-name {
+              display: flex;
+              i {
+                margin-right: 20px;
+                opacity: 0;
+              }
+
+              span{
+                cursor: pointer;
+              }
+            }
+
+            .ssl-item-artist {
+              span {
+                margin: 0 20px;
+              }
+            }
+          }
+          .ssl-item:hover .ssl-item-name > i {
+            opacity: 1;
+          }
+        }
+      }
+
+      // 歌词
+      .ss-right {
+        flex: 1;
+
+        .ssr-header {
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-bottom: 1px solid #eee;
+          color: #eee;
+          font-size: 0.9rem;
+        }
+
+        .ssr-content::-webkit-scrollbar {
+          width: 0 !important;
+        }
+        .ssr-content {
+          height: 209px;
+          overflow-y: scroll;
+          padding: 0 20px;
+
+          p {
+            font-size: 0.9rem;
+            color: #989898;
+            word-wrap: break-word;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

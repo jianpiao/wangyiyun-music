@@ -1,0 +1,205 @@
+.album {
+  background-color: #f1f1f1;
+
+  .album-box {
+    width: 980px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    padding: 0 20px;
+    display: flex;
+  }
+
+  .left {
+    width: 700px;
+  }
+
+  .album-header {
+    padding: 20px 0;
+
+    .album-header-box {
+      display: flex;
+
+      .album-pic {
+        width: 208px;
+        height: 208px;
+      }
+
+      .album-header-right {
+        padding-left: 20px;
+
+        // 专辑名称
+        .album-header-title {
+          display: flex;
+          align-items: center;
+          .album-header-tag {
+            background: url(../../../../../assets/images/icon.png) no-repeat 0 9999px;
+            width: 54px;
+            height: 24px;
+            background-position: 0 -186px;
+            display: inline-block;
+            overflow: hidden;
+            margin-right: 10px;
+          }
+        }
+
+        // 歌手
+        .album-header-create {
+          font-size: 0.9rem;
+          display: flex;
+          align-items: center;
+          margin-top: 15px;
+
+          .album-header-create-key {
+            margin-left: 10px;
+          }
+
+          .album-header-create-value {
+            margin-left: 10px;
+            color: #0c73c2;
+            cursor: pointer;
+          }
+        }
+
+        .album-publish-time {
+          margin-top: 15px;
+          color: #444;
+          font-size: 0.9rem;
+        }
+
+        // 工具栏
+        .album-header-tool {
+          display: flex;
+          align-items: center;
+          margin-top: 15px;
+
+          div {
+            margin-right: 20px;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            background-color: #f4f4f4;
+            border-radius: 3px;
+            cursor: pointer;
+
+            span {
+              color: #444;
+              font-size: 0.8rem;
+              margin-left: 5px;
+            }
+            i {
+              font-size: 1rem;
+            }
+          }
+
+          div:nth-child(1) {
+            display: flex;
+            align-items: center;
+            background-color: #3483cf;
+            color: #fff;
+            span {
+              color: #fff;
+            }
+          }
+        }
+
+        .album-desc {
+          margin-top: 15px;
+          color: #444;
+          font-size: 0.9rem;
+          word-wrap: break-word;
+        }
+      }
+    }
+  }
+
+  // 播放列表
+  .album-songlist {
+    .album-songlist-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #ce1f08;
+      padding: 15px 0;
+
+      span {
+        color: #666;
+        font-size: 0.9rem;
+      }
+    }
+    // .album-songlist-table {
+    // }
+  }
+
+  // 右边推荐
+  .right {
+    flex: 1;
+
+    .commend {
+      margin: 20px 0 0 20px;
+      // 标题
+      .title {
+        margin: 0 0 0 10px;
+        height: 2rem;
+        line-height: 2rem;
+        font-size: 0.8rem;
+        border-bottom: 1px solid #ccc;
+
+        h4 {
+          flex: 1;
+        }
+
+        span {
+          color: #666;
+          cursor: pointer;
+        }
+      }
+
+      // 推荐歌手
+      .artist {
+        flex-wrap: wrap;
+        margin: 15px 0 0 10px;
+        background-color: #fff;
+
+        .item {
+          margin-bottom: 1rem;
+          // 图片
+          .img {
+            width: 60px;
+            height: 50px;
+          }
+
+          // 内容
+          .content {
+            line-height: 25px;
+
+            p {
+              width: 140px;
+              font-size: 0.8rem;
+              color: #000;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              margin: 0;
+              padding: 0;
+            }
+
+            p:nth-child(2) {
+              color: #666;
+              font-size: 0.8rem;
+            }
+
+            p:nth-child(1):hover {
+              text-decoration-color: #000;
+              text-decoration-line: underline;
+              text-decoration-style: solid;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+<div class="container">
+  <!-- 头部 -->
+  <div class="header">
+    <div class="logo" (click)="toHome()">
+      <img src="../../../assets/images/logo.jpg">
+      <h2>网易云音乐</h2>
+    </div>
+    <div class="tab-list">
+      <div class="tab-item" *ngFor="let item of list,let index = index" [ngClass]="{'tab-active': tabActive==index}"
+        (click)="selectTab(item,index)">
+        {{item}}
+      </div>
+    </div>
+
+    <!-- 搜索 -->
+    <div class="search">
+      <div class="search-icon">
+        <i class="el-icon-search"></i>
+      </div>
+      <div class="search-input">
+        <input type="text" placeholder="音乐/视频/电台/用户">
+      </div>
+    </div>
+
+    <!-- 登陆 -->
+    <div class="login">
+      <div>登陆</div>
+    </div>
+  </div>
+
+  <!-- 导航 -->
+  <div class="nav" *ngIf="tabActive==0">
+    <div class="n-subnav">
+      <div class="n-list">
+        <div class="n-item" *ngFor="let item of navList,let index = index" (click)="changeNav(index)">
+          <span [ngClass]="{'nav-active': selectedNav==index}">{{item}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="nav" *ngIf="tabActive==1">
+    <div class="n-subdis"></div>
+  </div>
+</div>
