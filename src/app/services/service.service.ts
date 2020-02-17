@@ -7,6 +7,7 @@ import { SheetService } from './sheet/sheet.service';
 import { AlbumService } from './album/album.service';
 import { UserService } from './user/user.service';
 import { ArtistService } from './artist/artist.service';
+import { DjService } from './dj/dj.service';
 
 @Injectable({
   providedIn: ServicesModule
@@ -20,7 +21,8 @@ export class ServiceService {
     public sheet: SheetService,
     public album: AlbumService,
     public user: UserService,
-    public artist: ArtistService) {
+    public artist: ArtistService,
+    public dj:DjService) {
 
   }
 

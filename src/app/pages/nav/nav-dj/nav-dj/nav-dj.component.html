@@ -1,10 +1,30 @@
 <div class="container">
   <div class="box">
-    <div class="left">
-      <h1>左边</h1>
-    </div>
-    <div class="right">
-      <h1>右边</h1>
+    <div class="content">
+      <div class="header">
+        <h1>热门电台</h1>
+      </div>
+      <!-- 加载框 -->
+      <div style="text-align: center;margin: 20px auto;">
+        <nz-spin nzSimple *ngIf="loading"></nz-spin>
+      </div>
+      <div class="list flex">
+        <div class="item flex" *ngFor="let item of hotDj">
+          <div class="img">
+            <img [src]="item.picUrl" width="120" height="120" alt="" (click)="toDj(item.id)">
+          </div>
+          <div class="con">
+            <h2 (click)="toDj(item.id)"> {{item.name}}</h2>
+            <p> {{item.rcmdtext}}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 分页 -->
+      <div class="pagination">
+        <nz-pagination [nzPageIndex]="currentPage" [nzTotal]="total" [nzPageSize]="30"
+          (nzPageIndexChange)="nzPageIndexChange($event)"></nz-pagination>
+      </div>
     </div>
   </div>
 </div>
