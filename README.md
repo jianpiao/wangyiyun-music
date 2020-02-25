@@ -1,6 +1,6 @@
 # 网易云音乐-网易版-angular 
 
-(http://smallzip.com/wangyi-music)[在线访问地址]
+[在线访问地址](http://smallzip.com/wangyi-music)
 
 ## 安装运行
 
