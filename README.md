@@ -1,8 +1,8 @@
 # 网易云音乐-网易版-angular 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3.
+[在线访问地址](http://smallzip.com/wangyi-music)
 
-## 运行
+## 安装运行
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
