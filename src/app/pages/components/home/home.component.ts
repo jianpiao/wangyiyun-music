@@ -31,17 +31,17 @@ export class HomeComponent implements OnInit {
   toplistDj: TopListDj[];  // 热门dj
   playlistType: PlaylistType[] = [
     {
-      img: '../../../../assets/images/top.jpg',
+      img: './assets/images/top.jpg',
       name: '云音乐飙升榜',
       data: [],
     },
     {
-      img: '../../../../assets/images/new.jpg',
+      img: './assets/images/new.jpg',
       name: '云音乐新歌榜',
       data: [],
     },
     {
-      img: '../../../../assets/images/create.jpg',
+      img: './assets/images/create.jpg',
       name: '网易云原创音乐榜',
       data: [],
     },
